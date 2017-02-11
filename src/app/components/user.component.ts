@@ -5,12 +5,19 @@ import { Component } from '@angular/core';
   template: `<h1>Hello {{name}}</h1>
   <p><strong>Email:</strong> {{email}}</p>
   <p><strong>Address:</strong> {{address.street}} {{address.city}}, {{address.state}}</p>
+  <h3>Hobbies</h3>
+  <ul>
+    <li *ngFor="let hobby of hobbies">
+      {{hobby}}
+    </li>
+  </ul>
   `,
 })
 export class UserComponent {
   name: string;
   email: string;
   address: address;
+  hobbies: string[];
 
   constructor() {
     this.name = 'Aaron';
@@ -20,6 +27,7 @@ export class UserComponent {
       city: 'Bentonville',
       state: 'AR'
     }
+    this.hobbies = ['Music', 'Movies', 'Sports'];
   }
 }
 
