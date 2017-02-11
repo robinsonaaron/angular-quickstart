@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'user',
-  template: `<h1>Hello {{name}}</h1>
+  template: `<h1>{{name}}</h1>
   <p><strong>Email:</strong> {{email}}</p>
   <p><strong>Address:</strong> {{address.street}} {{address.city}}, {{address.state}}</p>
   <button (click)="toggleHobbies()">{{ showHobbies ? "Hide" : "Show"}} Hobbies</button>
@@ -14,6 +14,10 @@ import { Component } from '@angular/core';
       </li>
     </ul>
   </div>
+  <form>
+    <label>Name: </label> <br/>
+    <input type="text" name="name" [(ngModel)]="name" />
+  </form>
   `,
 })
 export class UserComponent {
