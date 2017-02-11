@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `<h1>Hello {{name}}</h1>
   <p><strong>Email:</strong> {{email}}</p>
   <p><strong>Address:</strong> {{address.street}} {{address.city}}, {{address.state}}</p>
-  <button (click)="toggleHobbies()">Show Hobbies</button>
+  <button (click)="toggleHobbies()">{{ showHobbies ? "Hide" : "Show"}} Hobbies</button>
   <div *ngIf = "showHobbies">
     <h3>Hobbies</h3>
     <ul>
