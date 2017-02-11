@@ -5,12 +5,15 @@ import { Component } from '@angular/core';
   template: `<h1>Hello {{name}}</h1>
   <p><strong>Email:</strong> {{email}}</p>
   <p><strong>Address:</strong> {{address.street}} {{address.city}}, {{address.state}}</p>
-  <h3>Hobbies</h3>
-  <ul>
-    <li *ngFor="let hobby of hobbies">
-      {{hobby}}
-    </li>
-  </ul>
+  <button (click)="toggleHobbies()">Show Hobbies</button>
+  <div *ngIf = "showHobbies">
+    <h3>Hobbies</h3>
+    <ul>
+      <li *ngFor="let hobby of hobbies">
+        {{hobby}}
+      </li>
+    </ul>
+  </div>
   `,
 })
 export class UserComponent {
@@ -18,6 +21,7 @@ export class UserComponent {
   email: string;
   address: address;
   hobbies: string[];
+  showHobbies: boolean;
 
   constructor() {
     this.name = 'Aaron';
@@ -28,6 +32,12 @@ export class UserComponent {
       state: 'AR'
     }
     this.hobbies = ['Music', 'Movies', 'Sports'];
+    this.showHobbies = false;
+  }
+
+  toggleHobbies(): void {
+    console.log("Show hobbies");
+    this.showHobbies = !this.showHobbies;
   }
 }
 
