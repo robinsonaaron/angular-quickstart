@@ -13,6 +13,10 @@ import { Component } from '@angular/core';
         {{hobby}}
       </li>
     </ul>
+    <form (submit)="addHobby(hobby.value)">
+      <label>Add Hobby: </label> <br/>
+      <input type="text" #hobby /><br/>
+    </form>
   </div>
   <hr />
   <h3>Edit User</h3>
@@ -52,6 +56,10 @@ export class UserComponent {
   toggleHobbies(): void {
     console.log("Show hobbies");
     this.showHobbies = !this.showHobbies;
+  }
+
+  addHobby(hobby: string) {
+    this.hobbies.push(hobby);
   }
 }
 
