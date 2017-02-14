@@ -43,7 +43,7 @@ export class UserComponent {
   hobbies: string[];
   showHobbies: boolean;
 
-  constructor() {
+  constructor(private postsService: PostsService) {
     this.name = 'Aaron';
     this.email = "aaron@gmail.com";
     this.address = {
@@ -53,6 +53,11 @@ export class UserComponent {
     }
     this.hobbies = ['Music', 'Movies', 'Sports'];
     this.showHobbies = false;
+
+    // getPosts returns a subscribable that we need to subscribe to.
+    this.postsService.getPosts().subscribe(posts => {
+      console.log(posts);
+    });
   }
 
   toggleHobbies(): void {
